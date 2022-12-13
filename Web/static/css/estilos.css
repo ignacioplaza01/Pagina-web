@@ -1,0 +1,10 @@
+.menu{
+    display: block;
+    font-family: 'Open sans';
+    text-decoration: none;
+
+}
+body{
+    background-color: black;
+    color: aqua;
+}
