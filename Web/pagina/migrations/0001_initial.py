@@ -20,6 +20,7 @@ class Migration(migrations.Migration):
                 ('ram', models.CharField(max_length=20)),
                 ('velocidadCPU', models.CharField(max_length=20)),
                 ('fechaExpiracion', models.CharField(max_length=20)),
+                ('estado', models.CharField(max_length=10))
             ],
         ),
         migrations.CreateModel(
@@ -32,6 +33,7 @@ class Migration(migrations.Migration):
                 ('correo', models.CharField(max_length=20)),
                 ('equipo', models.CharField(max_length=20)),
                 ('fechaAsignacion', models.CharField(max_length=20)),
+                
             ],
         ),
     ]

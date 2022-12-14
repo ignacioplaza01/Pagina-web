@@ -18,7 +18,7 @@ from django.urls import path, include
 from pagina import views
 
 
-
+#Aqui se definen las rutas que se utilizaran para acceder a las diferentes vistas de la pagina
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),

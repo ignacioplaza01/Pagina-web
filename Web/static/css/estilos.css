@@ -1,10 +1,14 @@
-.menu{
-    display: block;
-    font-family: 'Open sans';
-    text-decoration: none;
-
-}
 body{
-    background-color: black;
+    background-color: rgb(214, 95, 95);
     color: aqua;
+}
+
+nav{
+    color: yellow;
+}
+
+table{
+    background-color: aqua;
+    color: blueviolet;
+    border: 5cm;
 }
