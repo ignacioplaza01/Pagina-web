@@ -115,12 +115,13 @@
         <!--Esto permite mostrar en una lista los datos de equipos recuperados anteriormente -->
           {% for a in Equipos %}   
           <tr>
+              
               <td>{{ a.codEquipo }}</td>
               <td>{{ a.marca }}</td>
               <td>{{ a.ram }}</td>
               <td>{{ a.velocidadCPU }}</td>
               <td>{{ a.fechaExpiracion }}</td>
-              <th>{{ a.estado }} <a href="/infoE/{{ a.codEquipo }}" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i>Ver</th>
+              <th>{{ a.estado }} </th>
               <td><a href="/actualizarE/{{ a.codEquipo }}" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i>Actualizar</td>
               <td><a href="/eliminarE/{{ a.codEquipo }}" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i>Eliminar</td>    
           </tr>

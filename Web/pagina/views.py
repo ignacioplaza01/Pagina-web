@@ -67,8 +67,9 @@ def indexEquipos(request):
   busqueda = request.GET.get("buscar")
   if busqueda:
     equipos = Equipos.objects.filter(
-      Q(codEquipo__icontains = busqueda) |
+      Q(marca__icontains = busqueda) |
       Q(estado__icontains = busqueda) 
+
     ).distinct#--)
 
   return render(request,'indexEquipo/indexEquipo.html',{'Equipos':equipos})
@@ -92,7 +93,7 @@ def eliminarEquipos(request,codEquipo):
 
 #Permite actualizar los datos de los equipos de la lista
 def actualizarEquipo(request,codEquipo):
-  equipo = Equipos.objects.get(codEquipo = codEquipo)
+  equipo = Equipos.objects.get(codEquipo= codEquipo)
   form = RegistroEquipo(instance=equipo)
   if request.method == 'POST':
       form = RegistroEquipo(request.POST, instance=equipo)
@@ -102,12 +103,3 @@ def actualizarEquipo(request,codEquipo):
   data = {'form':form}
   return render(request,'registroEquipo/equipos.html',data)
 
-def InfoT(request,id):
-
-    trabajador = get_object_or_404(Trabajadores,pk=id)
-    return render(request, 'info/infoT.html',{"Trabajadores":trabajador})  
-
-def InfoE(request,codEquipo):
-
-    equipo = get_object_or_404(Equipos,pk=codEquipo)
-    return render(request, 'info/infoE.html',{"Equipos":equipo})      

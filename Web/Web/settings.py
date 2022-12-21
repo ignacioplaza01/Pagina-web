@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'Web.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'KOZAN',
+        'NAME': 'KOZANDB',
         'USER': 'admin',
         'PASSWORD': '12345678',
         'HOST':'paginaweb.cbksrc7oxuzz.us-east-1.rds.amazonaws.com',

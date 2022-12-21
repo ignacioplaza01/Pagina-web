@@ -3,7 +3,7 @@ from django.db import models
 
 #Aqui se crean los modelos que despues seran subidas a la base de datos en forma de tablas
 class Equipos(models.Model):
-    codEquipo = models.CharField(max_length=10)  
+    codEquipo = models.CharField(primary_key=True,max_length=10)  
     marca = models.CharField(max_length=20)
     ram = models.CharField(max_length=20)
     velocidadCPU = models.CharField(max_length=20)
@@ -19,5 +19,5 @@ class Trabajadores(models.Model):
     area = models.CharField(max_length=20)
     correo = models.CharField(max_length=20)
     equipo = models.ForeignKey(Equipos,on_delete=models.DO_NOTHING, blank=True, null=True)
-    fechaAsignacion = models.CharField(max_length=20)
+    fechaAsignacion = models.DateField('Fecha de asignacion',blank=False, null=False)
 
