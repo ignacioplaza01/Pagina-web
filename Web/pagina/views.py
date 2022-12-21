@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from pagina.models import Trabajadores, Equipos
 from pagina.forms import RegistroEquipo, RegistroTrabajador
 from django.db.models import Q
@@ -101,3 +101,13 @@ def actualizarEquipo(request,codEquipo):
       return indexEquipos(request)    
   data = {'form':form}
   return render(request,'registroEquipo/equipos.html',data)
+
+def InfoT(request,id):
+
+    trabajador = get_object_or_404(Trabajadores,pk=id)
+    return render(request, 'info/infoT.html',{"Trabajadores":trabajador})  
+
+def InfoE(request,codEquipo):
+
+    equipo = get_object_or_404(Equipos,pk=codEquipo)
+    return render(request, 'info/infoE.html',{"Equipos":equipo})      

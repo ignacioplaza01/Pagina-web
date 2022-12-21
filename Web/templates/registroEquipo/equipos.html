@@ -9,16 +9,21 @@
     <style>
         body{
             background-color: #0274be;
+            background-image: url('https://www.atacamakozan.cl/wp-content/uploads/elementor/thumbs/AtacamaKozanDrone-ozrsohfanekv5v5yxm5vpgzvl13fga20drx63pkv3k.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size:cover;
         }
         form{
-            color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+           
         }
     </style>
 </head>
 <body class="container nt-5">
     <div class="alert alert-info display-1 text-center" style="background-color:#ff6900 ;">Registro de Equipos</div>
     <!--Esto permite mostrar el formulario de equipos creado anteriortemte -->>
-    <form method='post'>
+    <form method='post' >
         {{ form.as_p }}
         {% csrf_token %}
         <input  type="submit" class="btn btn-info" value="Enviar">

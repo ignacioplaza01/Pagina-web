@@ -30,6 +30,8 @@ urlpatterns = [
     path('indexE/', views.indexEquipos),
     path('registroE/', views.registrarEquipos),
     path('eliminarE/<str:codEquipo>', views.eliminarEquipos),
-    path('actualizarE/<str:codEquipo>', views.actualizarEquipo)
+    path('actualizarE/<str:codEquipo>', views.actualizarEquipo),
+    path('infoT/<int:id>', views.InfoT),
+    path('infoE/<str:codEquipo>', views.InfoE)
    
 ]
