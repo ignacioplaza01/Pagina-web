@@ -10,29 +10,42 @@
       body{
         background-color: #0274be;
       }
-      
+      #navbarSupportedContent{
+        background-color: #ff6900;
+        
+        width: 100%;
+        
+      }
+
       #navbarSupportedContent ul a:hover {
         background-color: #9b490fb2;
       }
-      .menu{
-        background-color: #ff6900;
+
+      #bonotes{
+        margin-left: 0.5cm;
       }
+      
       table{
         background-color: white;
         margin: 0.5cm;
+        margin-right: 0.5cm;
       }
-      .form-inline{
-        background-color: #0274be;
-        margin-bottom: -0.2cm;
-        margin-top: -0.23cm;
+
+      div form{
+        margin-left: 15cm;
+        display: flex;
+        justify-content: right;
+        align-items: right;
+      }
+      
+      div form a{
+        margin-left: 1cm;
+        margin-top: 0.2cm;
       }
       .form-inline button{
         background-color: white;
       }
-      #sisi{
-        background-color: #ff6900;
-      }
-
+      
     </style>
 </head>
 <body>
@@ -61,28 +74,31 @@
             </li>
             
           </ul>
-          
-    </nav>
-        
-        <div>
-            
-            <nav class="navbar navbar-light bg-light">
-              {% csrf_token %}
+          {% csrf_token %}
               <form class="form-inline" method="get">
-                <h2 class="menu">Lista de Equipos</h2> 
+                
                 <input class="form-control mr-sm-2 " type="text" aria-label="Search" name="buscar">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Buscar</button>
+                <a class="nav-link" style="color: white;" href="/salir">Salir</a>
               </form>
+          
+    </nav>
+    
+        
+              
                
-            </nav>
-        </div>
+            
         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   {%if Equipos %}
-  <table class="table table-bordered">
+  <table class="table table-bordered"><br>
+    <h2 >Lista de Equipos</h2> 
+    
       <thead>
+        
           <tr>
+              
               <th>Cod.Equipo</th>
               <th>Marca</th>
               <th>Ram</th>
@@ -112,6 +128,6 @@
     {% endif %} 
     
     <a href="/registroE" class="btn btn-info float-end">Registrar equipo</a> 
-    <a style="color: white;" href="/salir">Salir</a>
+    
 </body>
 </html>
