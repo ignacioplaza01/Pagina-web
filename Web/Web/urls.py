@@ -23,14 +23,24 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('salir/', views.cerrarSesion, name='salir'),
+
     path('', views.indexTrabajadores),
     path('registroT/', views.registrarTrabajador),
     path('eliminarT/<int:id>', views.eliminarTrabajador),
     path('actualizarT/<int:id>', views.actualizarTrabajador),
+    path('infoT/<int:id>', views.infoT),
+
     path('indexE/', views.indexEquipos),
     path('registroE/', views.registrarEquipos),
     path('eliminarE/<str:codEquipo>', views.eliminarEquipos),
     path('actualizarE/<str:codEquipo>', views.actualizarEquipo),
+    path('infoE/<str:codEquipo>', views.infoE),
+
+    path('indexC/', views.indexColab),
+    path('registroC/', views.registrarColab),
+    path('eliminarC/<int:id>', views.eliminarColab),
+    path('actualizarC/<int:id>', views.actualizarColab),
+    path('infoC/<int:id>', views.infoC)
 
    
 ]

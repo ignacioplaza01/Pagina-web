@@ -9,6 +9,10 @@ class Equipos(models.Model):
     velocidadCPU = models.CharField(max_length=20)
     fechaExpiracion = models.DateField('Fecha de expiracion',blank=False, null=False) 
     estado = models.CharField(max_length=10)
+    avaluo = models.IntegerField(max_length=20)
+    procesador = models.CharField(max_length=20)
+    almacenamiento = models.CharField(max_length=5)
+    tipoEquipo = models.CharField(max_length=20)
     def __str__(self):
         return self.codEquipo
 
@@ -21,3 +25,10 @@ class Trabajadores(models.Model):
     equipo = models.ForeignKey(Equipos,on_delete=models.DO_NOTHING, blank=True, null=True)
     fechaAsignacion = models.DateField('Fecha de asignacion',blank=False, null=False)
 
+class Colaboradores(models.Model):
+    nombres = models.CharField(max_length=20)
+    apellidos = models.CharField(max_length=20)
+    area = models.CharField(max_length=20)
+    correo = models.CharField(max_length=20)
+    equipo = models.ForeignKey(Equipos,on_delete=models.DO_NOTHING, blank=True, null=True)
+    fechaAsignacion = models.DateField('Fecha de asignacion',blank=False, null=False)

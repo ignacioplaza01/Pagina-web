@@ -1,5 +1,5 @@
 from django import forms    
-from pagina.models import Trabajadores, Equipos
+from pagina.models import Trabajadores, Equipos, Colaboradores
 
 #Crea formularios utilizando las clases como campos
 
@@ -17,4 +17,7 @@ class RegistroEquipo(forms.ModelForm):
         model = Equipos
         fields = '__all__'        
 
-        
+class RegistroColab(forms.ModelForm):
+    class Meta:
+        model = Colaboradores
+        fields = '__all__'        

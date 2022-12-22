@@ -15,23 +15,44 @@
             background-size:cover;
         }
         form{
-            text-anchor: start;
+            font-size:larger;
             color: rgb(255, 255, 255);
+            column-count: 2;
+        
            
         }
+        .cuadrado {
+            width: 29,5cm;           /* Ancho de 150 píxeles */
+            height: 12cm;          /* Alto de 150 píxeles */
+            background: #0274be;        /* Fondo de color rojo */
+            border: 1px solid #000; /* Borde color negro y de 1 píxel de grosor */
+            border-radius: 0.5cm;
+            opacity: 0.8;
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+            
+         }
+         
     </style>
 </head>
 <body class="container nt-5">
-    <div class="alert alert-info display-1 text-center" style="background-color:#ff6900 ;">Registro de Equipos</div>
-    <!--Esto permite mostrar el formulario de equipos creado anteriortemte -->>
-    <form method='post' >
-        {{ form.as_p }}
-        {% csrf_token %}
-        <input  type="submit" class="btn btn-info" value="Enviar">
-    </form>
+    <div class="alert alert-info display-1 text-center" style="background-color: #ff6900">Registro de Equipos</div>
     
-    <br>
-    <a href="/indexE" class="btn btn-info">Volver</a>
+    <!--Esto permite mostrar el formulario de trabajadores creado anteriortemte -->
+    <div class="cuadrado"><br>
+        <form method='post'>
+            {{ form.as_p }}
+            {% csrf_token %}
+            <input  type="submit" class="btn btn-info" value="Enviar">
+            <a href="/indexE" class="btn btn-info">Volver</a>
+        </form>
+
+    </div>
+                
+    
+
+    
     
 </body>
 </html>

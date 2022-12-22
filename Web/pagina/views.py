@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from pagina.models import Trabajadores, Equipos
-from pagina.forms import RegistroEquipo, RegistroTrabajador
+from pagina.models import Trabajadores, Equipos, Colaboradores
+from pagina.forms import RegistroEquipo, RegistroTrabajador, RegistroColab
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
@@ -57,6 +57,12 @@ def actualizarTrabajador(request,id):
   data = {'form':form}
   return render(request, 'registroTrabajador/registroT.html',data)
 
+def infoT(request,id):
+
+    trabajadores = get_object_or_404(Trabajadores,pk=id)
+    return render(request, 'info/infoT.html',{"Trabajadores":trabajadores})  
+
+
 #Equipos
 #Permite recuperar los datos de los equipos ingresados 
 def indexEquipos(request):
@@ -103,3 +109,57 @@ def actualizarEquipo(request,codEquipo):
   data = {'form':form}
   return render(request,'registroEquipo/equipos.html',data)
 
+def infoE(request,codEquipo):
+
+    equipos = get_object_or_404(Equipos,pk=codEquipo)
+    return render(request, 'info/infoE.html',{"Equipos":equipos})  
+
+
+
+def indexColab(request):
+  
+  colaboradores = Colaboradores.objects.all()
+
+  busqueda = request.GET.get("buscar")
+  if busqueda:
+    colaboradores = Colaboradores.objects.filter(
+      Q(nombres__icontains = busqueda) |
+      Q(area__icontains = busqueda) |
+      Q(apellidos__icontains = busqueda)
+    ).distinct()#--)
+
+  return render(request, 'colab/colab.html',{'Colaboradores':colaboradores})
+
+
+
+def registrarColab(request):
+  form = RegistroColab()
+  if request.method == 'POST':
+      form = RegistroColab(request.POST)
+      if form.is_valid():
+          form.save()
+      return indexColab(request)    
+  data = {'form': form}
+  return render(request, 'registroC/registroC.html',data)
+
+
+def eliminarColab(request,id):
+  colaboradores = Colaboradores.objects.get(id = id)
+  colaboradores.delete()
+  return redirect('/indexC')  
+
+def actualizarColab(request,id):
+  colaboradores = Colaboradores.objects.get(id = id)
+  form = RegistroColab(instance=colaboradores)
+  if request.method == 'POST':
+      form = RegistroColab(request.POST, instance=colaboradores)
+      if form.is_valid():
+          form.save()
+      return indexColab(request)    
+  data = {'form':form}
+  return render(request, 'registroC/registroC.html',data)
+
+def infoC(request,id):
+
+    colaboradores = get_object_or_404(Colaboradores,pk=id)
+    return render(request, 'info/infoC.html',{"Colaboradores":colaboradores})  
